@@ -1,0 +1,192 @@
+{
+    "abi": [
+        {
+            "constant": false,
+            "inputs": [
+                {
+                    "name": "cToken",
+                    "type": "address"
+                },
+                {
+                    "name": "RedeemAmount",
+                    "type": "uint256"
+                }
+            ],
+            "name": "redeemERC20",
+            "outputs": [],
+            "payable": true,
+            "stateMutability": "payable",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [],
+            "name": "cEther",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [
+                {
+                    "name": "cToken",
+                    "type": "address"
+                },
+                {
+                    "name": "underlying",
+                    "type": "address"
+                },
+                {
+                    "name": "MintAmount",
+                    "type": "uint256"
+                }
+            ],
+            "name": "mintERC20",
+            "outputs": [],
+            "payable": true,
+            "stateMutability": "payable",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [],
+            "name": "withdrawEther",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [
+                {
+                    "name": "RedeemAmount",
+                    "type": "uint256"
+                }
+            ],
+            "name": "redeemEther",
+            "outputs": [],
+            "payable": true,
+            "stateMutability": "payable",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [
+                {
+                    "name": "token",
+                    "type": "address"
+                }
+            ],
+            "name": "withdrawToken",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [],
+            "name": "owner",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [],
+            "name": "mintEther",
+            "outputs": [],
+            "payable": true,
+            "stateMutability": "payable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "name": "_cEther",
+                    "type": "address"
+                }
+            ],
+            "payable": true,
+            "stateMutability": "payable",
+            "type": "constructor"
+        },
+        {
+            "payable": true,
+            "stateMutability": "payable",
+            "type": "fallback"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "name": "cTokenAddress",
+                    "type": "address"
+                },
+                {
+                    "indexed": false,
+                    "name": "MintAmount",
+                    "type": "uint256"
+                }
+            ],
+            "name": "MintERC20",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "name": "MintAmount",
+                    "type": "uint256"
+                }
+            ],
+            "name": "MintEther",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "name": "cTokenAddress",
+                    "type": "address"
+                },
+                {
+                    "indexed": false,
+                    "name": "RedeemAmount",
+                    "type": "uint256"
+                }
+            ],
+            "name": "RedeemERC20",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "name": "RedeemAmount",
+                    "type": "uint256"
+                }
+            ],
+            "name": "RedeemEther",
+            "type": "event"
+        }
+    ]
+}
