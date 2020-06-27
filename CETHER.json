@@ -63,6 +63,20 @@
         },
         {
             "constant": false,
+            "inputs": [],
+            "name": "exchangeRateCurrent",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "constant": false,
             "inputs": [
                 {
                     "name": "redeemTokens",

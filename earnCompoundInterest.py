@@ -57,23 +57,30 @@ CETHERContract = w3.eth.contract(abi=CETHER_ABI, address=CETHER_ADDR)
 # supply_rate = CETHERContract.functions.supplyRatePerBlock().call()
 # print("cEther supply rate:", supply_rate)
 underlying_balance = CETHERContract.functions.balanceOfUnderlying(EARN_COMPOUND_ADDR).call()
-print("ECOMPOUND cEther balance:", underlying_balance)
+print("ECOMPOUND Ether balance:", Decimal(underlying_balance / 10 ** 18))
+balance = CETHERContract.functions.balanceOf(EARN_COMPOUND_ADDR).call()
+print("ECOMPOUND cEther balance:", balance)
+print("cEther exg. rate:", CETHERContract.functions.exchangeRateCurrent().call())
 # cDAI contract
 CDAI_ADDR = Web3.toChecksumAddress("CDAI_address")
 CDAIContract = w3.eth.contract(abi=CTOKEN_ABI, address=CDAI_ADDR)
 # supply_rate = CDAIContract.functions.supplyRatePerBlock().call()
 # print("cDAI supply rate:", supply_rate)
 underlying_balance = CDAIContract.functions.balanceOfUnderlying(EARN_COMPOUND_ADDR).call()
-print("ECOMPOUND cDAI balance:", Decimal(underlying_balance / 10 ** 18 ))
+print("ECOMPOUND DAI balance:", Decimal(underlying_balance / 10 ** 18 ))
+balance = CDAIContract.functions.balanceOf(EARN_COMPOUND_ADDR).call()
+print("ECOMPOUND cDAI balance:", balance)
+print("cDAI exg. rate:", CDAIContract.functions.exchangeRateCurrent().call())
 # cUSDC contract
 CUSDC_ADDR = Web3.toChecksumAddress("CUSDC_address")
 CUSDCContract = w3.eth.contract(abi=CTOKEN_ABI, address=CUSDC_ADDR)
 # supply_rate = CUSDCContract.functions.supplyRatePerBlock().call()
 # print("cUSDC supply rate:", supply_rate)
 underlying_balance = CUSDCContract.functions.balanceOfUnderlying(EARN_COMPOUND_ADDR).call()
-print("ECOMPOUND cUSDC balance:", underlying_balance)
-print(CUSDCContract.functions.exchangeRateCurrent().call())
-print(CUSDCContract.functions.balanceOf(EARN_COMPOUND_ADDR).call())
+print("ECOMPOUND USDC balance:", Decimal(underlying_balance / 10 ** 6 ))
+balance = CUSDCContract.functions.balanceOf(EARN_COMPOUND_ADDR).call()
+print("ECOMPOUND cUSDC balance:", balance)
+print("cUSDC exg. rate:", CUSDCContract.functions.exchangeRateCurrent().call())
 
 # mint cDAI with earnCompound contract
 unsigned_transaction = EarnCOMPOUNDContract.functions.mintERC20(
@@ -87,8 +94,8 @@ tx_hash = w3.eth.sendRawTransaction(signed.rawTransaction)
 receipt = w3.eth.waitForTransactionReceipt(tx_hash)
 print(receipt)
 print("ECOMPOUND DAI balance:", Web3.fromWei(DAIContract.functions.balanceOf(EARN_COMPOUND_ADDR).call(), 'ether'))
-underlying_balance = CDAIContract.functions.balanceOfUnderlying(EARN_COMPOUND_ADDR).call()
-print("ECOMPOUND cDAI balance:", Decimal(underlying_balance / 10 ** 18 ))
+balance = CDAIContract.functions.balanceOf(EARN_COMPOUND_ADDR).call()
+print("ECOMPOUND cDAI balance:", balance)
 
 # redeem cDAI with earnCompound contract
 unsigned_transaction = EarnCOMPOUNDContract.functions.redeemERC20(
@@ -101,8 +108,8 @@ tx_hash = w3.eth.sendRawTransaction(signed.rawTransaction)
 receipt = w3.eth.waitForTransactionReceipt(tx_hash)
 print(receipt)
 print("ECOMPOUND DAI balance:", Web3.fromWei(DAIContract.functions.balanceOf(EARN_COMPOUND_ADDR).call(), 'ether'))
-underlying_balance = CDAIContract.functions.balanceOfUnderlying(EARN_COMPOUND_ADDR).call()
-print("ECOMPOUND cDAI balance:", Decimal(underlying_balance / 10 ** 18 ))
+balance = CDAIContract.functions.balanceOf(EARN_COMPOUND_ADDR).call()
+print("ECOMPOUND cDAI balance:", balance)
 
 # mint cUSDC with earnCompound contract
 unsigned_transaction = EarnCOMPOUNDContract.functions.mintERC20(
@@ -116,8 +123,8 @@ tx_hash = w3.eth.sendRawTransaction(signed.rawTransaction)
 receipt = w3.eth.waitForTransactionReceipt(tx_hash)
 print(receipt)
 print("ECOMPOUND USDC balance:", Web3.fromWei(USDCContract.functions.balanceOf(EARN_COMPOUND_ADDR).call(), 'ether'))
-underlying_balance = CUSDCContract.functions.balanceOfUnderlying(EARN_COMPOUND_ADDR).call()
-print("ECOMPOUND cUSDC balance:", Decimal(underlying_balance / 10 ** 18 ))
+balance = CUSDCContract.functions.balanceOf(EARN_COMPOUND_ADDR).call()
+print("ECOMPOUND cUSDC balance:", balance)
 
 # redeem cUSDC with earnCompound contract
 unsigned_transaction = EarnCOMPOUNDContract.functions.redeemERC20(
@@ -130,8 +137,8 @@ tx_hash = w3.eth.sendRawTransaction(signed.rawTransaction)
 receipt = w3.eth.waitForTransactionReceipt(tx_hash)
 print(receipt)
 print("ECOMPOUND USDC balance:", Web3.fromWei(USDCContract.functions.balanceOf(EARN_COMPOUND_ADDR).call(), 'lovelace'))
-underlying_balance = CUSDCContract.functions.balanceOfUnderlying(EARN_COMPOUND_ADDR).call()
-print("ECOMPOUND cUSDC balance:", Decimal(underlying_balance / 10 ** 18 ))
+balance = CUSDCContract.functions.balanceOf(EARN_COMPOUND_ADDR).call()
+print("ECOMPOUND cUSDC balance:", balance)
 
 # withdraw Dai
 unsigned_transaction = EarnCOMPOUNDContract.functions.withdraw().buildTransaction({'gas': 1500000, 'gasPrice': Web3.toWei(5, 'gwei'), 'nonce': w3.eth.getTransactionCount(addr)})
